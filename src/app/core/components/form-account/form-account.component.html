@@ -1,0 +1,116 @@
+<div class="form-account">
+  <div>
+    <div class="modal-body" style="width: 650px">
+      <form [formGroup]="addForm">
+        <div class="card">
+          <div class="card-header bg-info text-center">
+            <h2>Form Account</h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="firstName">FirstName</label>
+                  <input type="text" class="form-control" name="name" id="firstName" aria-describedby="firstNameId"
+                         formControlName="firstname" placeholder="Firstname..." />
+
+                </div>
+                <div class="form-group">
+                  <label for="lastName">LastName</label>
+                  <input type="text" class="form-control" name="name" id="lastName" aria-describedby="lastNameId"
+                         formControlName="lastname" placeholder="LastName..." />
+                  <small *ngIf="
+                addForm.get('lastname')?.invalid && formMessage|| addForm.get('lastname')?.touched&&!addForm.get('lastname')?.dirty
+              " id="lastNameId" class="form-text text-muted">*Please do not leave this field blank</small>
+                </div>
+                <div class="form-group">
+                  <label for="employer">Employer</label>
+                  <input type="text" class="form-control" name="employer" id="employer" aria-describedby="employerId"
+                         formControlName="employer" placeholder="Employer..."/>
+
+                </div>
+                <div class="form-group">
+                  <label for="account_number">Account Number</label>
+                  <input type="number" class="form-control" name="employer" id="account_number"
+                         aria-describedby="account_numberId"
+                         formControlName="account_number" placeholder="Account Number..."/>
+                  <small *ngIf="
+                addForm.get('account_number')?.invalid && formMessage|| addForm.get('account_number')?.touched&&!addForm.get('account_number')?.dirty
+              " id="account_numberId" class="form-text text-muted">*Please do not leave this field blank</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" aria-describedby="emailId"
+                         formControlName="email" placeholder="Email..."/>
+                  <small *ngIf="
+                addForm.get('email')?.invalid&&formMessage ||
+                !addForm.get('email')?.dirty && addForm.get('email')?.touched
+              " id="emailId" class="form-text text-muted">Email is required (Examp : ***@*****)</small>
+                </div>
+                <div class="form-group">
+                  <label for="age">Age</label>
+                  <input type="number" class="form-control" name="age" id="age" aria-describedby="ageId"
+                         formControlName="age" placeholder="Age..."/>
+                  <small *ngIf="
+                addForm.get('age')?.invalid&&addForm.get('age')?.touched
+              " class="form-text text-muted">*Age can't less then 0</small>
+                  <small *ngIf="
+                addForm.get('age')?.invalid && formMessage || addForm.get('age')?.touched&&!addForm.get('age')?.dirty
+              "  class="form-text text-muted">*Please do not leave this field blank</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="balance">Balance</label>
+                  <input type="number" class="form-control" name="balance" id="balance" aria-describedby="ageId"
+                         formControlName="balance" placeholder="Balance..."/>
+                  <small *ngIf="
+                addForm.get('balance')?.invalid&&addForm.get('balance')?.touched
+              " class="form-text text-muted">*Balance can't less then 0</small>
+                  <small *ngIf="
+                addForm.get('balance')?.invalid && formMessage || addForm.get('balance')?.touched&&!addForm.get('balance')?.dirty
+              "  class="form-text text-muted">*Please do not leave this field blank</small>
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" class="form-control" name="address" id="address" aria-describedby="addressId"
+                         formControlName="address" placeholder="Address..."/>
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" name="city" id="city" aria-describedby="cityId"
+                         formControlName="city" placeholder="City..."/>
+                </div>
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <select id="gender" class="form-control" name="gender" formControlName="gender">
+                    <option value="M" selected>Male</option>
+                    <option value="F">Female</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <input type="text" class="form-control" name="state" id="state" aria-describedby="stateId"
+                         formControlName="state" placeholder="State..."/>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="submit-btn card-footer bg-info text-muted d-flex justify-content-center">
+            <button *ngIf="!id"  type="submit" (click)="saveNew()"
+                    class="btn btn-primary mr-2">
+              Save
+            </button>
+            <button *ngIf="id" [disabled]="addForm.invalid" type="submit" (click)="saveEdit()"
+                    class="btn btn-primary mr-2">
+              Edit
+            </button>
+            <button (click)="formAccountSV.isOpenFrom=false" type="" class="btn btn-secondary">Close</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+#form-account {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(240, 248, 255, 0.27);
+}
+#form-account.form-account {
+  display: flex;
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container .mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+form.ng-untouched.ng-pristine.ng-valid {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+

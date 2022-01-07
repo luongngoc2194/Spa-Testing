@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-account {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  z-index: 10;
+  background: rgba(208, 206, 206, 0.6);
+}
+
+
+
+.submit-btn.card-footer>button{
+  min-width: 100px;
+}
+.form-group.form-inline {
+  margin-bottom: 0;
+  margin-left: 12px;
+}
+
+input#search {
+  width: 388px;
+}
+
+table {
+  position: relative
+}
+
+thead {
+  position: sticky;top: 0;background: aquamarine;
+  line-height: 34px;
+}
+
+.card-body {
+  height: 500px;
+  overflow: auto;
+}
