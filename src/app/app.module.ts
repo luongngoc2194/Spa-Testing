@@ -13,10 +13,11 @@ import {MaterialModule} from './material/material.module';
 import { FormAccountComponent } from './core/components/form-account/form-account.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatOptionModule} from '@angular/material/core';
+import { MyTableComponent } from './core/my-component/my-table/my-table.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, NgxPaginationModule, BrowserAnimationsModule, MaterialModule, ReactiveFormsModule, MatSelectModule, MatOptionModule],
-  declarations: [AppComponent, ListAccountComponent, FormAccountComponent],
+  declarations: [AppComponent, ListAccountComponent, FormAccountComponent, MyTableComponent],
   bootstrap: [AppComponent],
   providers: [
     // provider used to create fake backend,

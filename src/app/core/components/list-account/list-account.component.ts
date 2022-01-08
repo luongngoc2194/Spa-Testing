@@ -27,6 +27,31 @@ export class ListAccountComponent implements OnInit {
   openDeletePopup = false;
   deleteAcc!: Account;
 
+  listColumns = [
+    {
+      field: 'name',
+      label: 'Name',
+      width: '100px'
+    },
+    {
+      field: 'age',
+      label: 'Age',
+      width: '150px'
+    },
+    {
+      field: 'balance',
+      label: 'Balance',
+      width: '140px'
+    },
+    {
+      field: 'email',
+      label: 'Email',
+      width: '150px'
+    },
+
+  ];
+
+
   constructor(private accountService: AccountService, private formAccountSV: FormAccountService) {
     // read data from file to localstorage
     this.unSubscribeAll = new Subject<any>();
@@ -64,6 +89,8 @@ export class ListAccountComponent implements OnInit {
       .subscribe((resp: Account[]) => {
 
         this.account = resp;
+        console.log(this.account);
+        console.log(this.account.keys());
         this.isLoading = false;
       }, (err: Error) => {
         this.account = [];

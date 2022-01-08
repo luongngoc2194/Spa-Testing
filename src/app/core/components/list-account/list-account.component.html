@@ -3,40 +3,50 @@
   <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
 </div>
 <div *ngIf="!isLoading">
-<table  class="table table-striped table-hover table-bordered table-inverse text-center mt-4">
-  <thead class="thead-inverse">
-  <tr>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Balance</th>
-    <th>Email</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr  *ngFor="let account of account|paginate: { itemsPerPage: perPage, currentPage: page ,totalItems :totalLength }; let index=index">
-    <td>{{account.firstname}} {{account.lastname}}</td>
-    <td>{{account.age}}</td>
-    <td>{{account.balance}}</td>
-    <td>{{account.email}}</td>
-    <td>
-      <button class="btn btn-primary" (click)="openEdit(account)">Edit</button>
-      <button class="btn btn-danger ml-2" (click)="openDelete(account)">Delete</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<div class="d-flex justify-content-between">
-  <div class="form-group d-flex justify-content-center">
-    <div style="text-align: center;width: 50px">Per page</div>
-    <select  class="form-control ml-2" [(ngModel)]="perPage" >
-      <option selected value="10">10</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-    </select>
-  </div>
-  <pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="page=$event"></pagination-controls>
-</div>
+  <app-my-table
+    (openDelete)="openDelete($event)"
+    (openEdit)="openEdit($event)"
+    [listColumns]="listColumns"
+    [account]="account"
+    [perPage]="perPage"
+  >
+
+  </app-my-table>
+<!--  <table class="table table-striped table-hover table-bordered table-inverse text-center mt-4">-->
+<!--    <thead class="thead-inverse">-->
+<!--    <tr>-->
+<!--      <th *ngFor="let item of listColumns" >{{item.label}}</th>-->
+<!--      &lt;!&ndash;    <th>Age</th>&ndash;&gt;-->
+<!--      &lt;!&ndash;    <th>Balance</th>&ndash;&gt;-->
+<!--      &lt;!&ndash;    <th>Email</th>&ndash;&gt;-->
+<!--      <th>Action</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr-->
+<!--      *ngFor="let account of account|paginate: { itemsPerPage: perPage, currentPage: page ,totalItems :totalLength }; let index=index">-->
+<!--      <td>{{account.firstname}} {{account.lastname}}</td>-->
+<!--      <td>{{account.age}}</td>-->
+<!--      <td>{{account.balance}}</td>-->
+<!--      <td>{{account.email}}</td>-->
+<!--      <td>-->
+<!--        <button class="btn btn-primary" (click)="openEdit(account)">Edit</button>-->
+<!--        <button class="btn btn-danger ml-2" (click)="openDelete(account)">Delete</button>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--  <div class="d-flex justify-content-between">-->
+<!--    <div class="form-group d-flex justify-content-center">-->
+<!--      <div style="text-align: center;width: 50px">Per page</div>-->
+<!--      <select class="form-control ml-2" [(ngModel)]="perPage">-->
+<!--        <option selected value="10">10</option>-->
+<!--        <option value="20">20</option>-->
+<!--        <option value="30">30</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="page=$event"></pagination-controls>-->
+<!--  </div>-->
 </div>
 <div *ngIf="openDeletePopup" class="delete-popup d-flex justify-content-center align-items-center">
   <div class="col-6 d-flex justify-content-center align-items-center" style="background: #ddd;height: 200px">

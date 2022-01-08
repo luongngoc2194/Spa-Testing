@@ -35,3 +35,10 @@ export function createParamSearch(param: Partial<ParamSearch>): ParamSearch {
     ...param
   } as ParamSearch;
 }
+
+export type Columns = {
+  field: string,
+  label: string,
+  width: string
+};
+

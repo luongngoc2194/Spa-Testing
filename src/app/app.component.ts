@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
 
     this.param = {
       start: this.searchFormData.value.state || 0,
-      limit: this.searchFormData.value.limit || 600,
+      limit: this.searchFormData.value.limit || 100,
       last_name: this.searchFormData.value.last_name,
       first_name: this.searchFormData.value.first_name,
       email: this.searchFormData.value.email,

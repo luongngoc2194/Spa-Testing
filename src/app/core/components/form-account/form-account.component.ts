@@ -58,6 +58,7 @@ export class FormAccountComponent implements OnInit {
           state: this.account.state,
         });
       } else {
+        this.id = null;
         this.addForm.patchValue({
           account_number: null,
           firstname: null,
