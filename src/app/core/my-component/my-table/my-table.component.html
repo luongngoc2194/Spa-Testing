@@ -1,0 +1,35 @@
+<table class="table table-striped table-hover table-bordered table-inverse text-center mt-4">
+  <thead class="thead-inverse">
+  <tr>
+    <th *ngFor="let item of listColumns" >{{item.label}}</th>
+    <!--    <th>Age</th>-->
+    <!--    <th>Balance</th>-->
+    <!--    <th>Email</th>-->
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
+    *ngFor="let account of account|paginate: { itemsPerPage: perPage, currentPage: page ,totalItems :totalLength }; let index=index">
+    <td>{{account.firstname}} {{account.lastname}}</td>
+    <td>{{account.age}}</td>
+    <td>{{account.balance}}</td>
+    <td>{{account.email}}</td>
+    <td>
+      <button class="btn btn-primary" (click)="openEditEvent(account)">Edit</button>
+      <button class="btn btn-danger ml-2" (click)="openDeleteEvent(account)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-between">
+  <div class="form-group d-flex justify-content-center">
+    <div style="text-align: center;width: 50px">Per page</div>
+    <select class="form-control ml-2" [(ngModel)]="perPage">
+      <option selected value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </div>
+  <pagination-controls (pageChange)="page = $event" (pageBoundsCorrection)="page=$event"></pagination-controls>
+</div>
