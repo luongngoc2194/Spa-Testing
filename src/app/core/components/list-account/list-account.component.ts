@@ -29,9 +29,9 @@ export class ListAccountComponent implements OnInit {
 
   listColumns = [
     {
-      field: 'name',
+      field: 'lastname',
       label: 'Name',
-      width: '100px'
+      width: '200px'
     },
     {
       field: 'age',
@@ -46,7 +46,7 @@ export class ListAccountComponent implements OnInit {
     {
       field: 'email',
       label: 'Email',
-      width: '150px'
+      width: '300px'
     },
 
   ];

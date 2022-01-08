@@ -9,7 +9,7 @@ import {Account, Columns} from '../../model/account.model';
 export class MyTableComponent implements OnInit {
 
   @Input() listColumns!: Columns[];
-  @Input() account!: Account[];
+  @Input() account!: any[];
   @Input() perPage!: number;
 
   @Output() openEdit = new EventEmitter<any>();

@@ -11,10 +11,10 @@
   <tbody>
   <tr
     *ngFor="let account of account|paginate: { itemsPerPage: perPage, currentPage: page ,totalItems :totalLength }; let index=index">
-    <td>{{account.firstname}} {{account.lastname}}</td>
-    <td>{{account.age}}</td>
-    <td>{{account.balance}}</td>
-    <td>{{account.email}}</td>
+    <td *ngFor="let item of listColumns" [width]="item.width" >{{account[item.field.toString()]}}</td>
+<!--    <td>{{account.age}}</td>-->
+<!--    <td>{{account.balance}}</td>-->
+<!--    <td>{{account.email}}</td>-->
     <td>
       <button class="btn btn-primary" (click)="openEditEvent(account)">Edit</button>
       <button class="btn btn-danger ml-2" (click)="openDeleteEvent(account)">Delete</button>
